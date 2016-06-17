@@ -1,0 +1,4 @@
+/Users/brenemal/personal/sudocv/CMakeFiles/edit_cache.dir
+/Users/brenemal/personal/sudocv/CMakeFiles/rebuild_cache.dir
+/Users/brenemal/personal/sudocv/CMakeFiles/sudocv.dir
+/Users/brenemal/personal/sudocv/CMakeFiles/vision.dir
