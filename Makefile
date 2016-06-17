@@ -163,6 +163,33 @@ sudo.cpp.s:
 	$(MAKE) -f CMakeFiles/sudocv.dir/build.make CMakeFiles/sudocv.dir/sudo.cpp.s
 .PHONY : sudo.cpp.s
 
+utils/cache.o: utils/cache.cpp.o
+
+.PHONY : utils/cache.o
+
+# target to build an object file
+utils/cache.cpp.o:
+	$(MAKE) -f CMakeFiles/sudocv.dir/build.make CMakeFiles/sudocv.dir/utils/cache.cpp.o
+.PHONY : utils/cache.cpp.o
+
+utils/cache.i: utils/cache.cpp.i
+
+.PHONY : utils/cache.i
+
+# target to preprocess a source file
+utils/cache.cpp.i:
+	$(MAKE) -f CMakeFiles/sudocv.dir/build.make CMakeFiles/sudocv.dir/utils/cache.cpp.i
+.PHONY : utils/cache.cpp.i
+
+utils/cache.s: utils/cache.cpp.s
+
+.PHONY : utils/cache.s
+
+# target to generate assembly for a file
+utils/cache.cpp.s:
+	$(MAKE) -f CMakeFiles/sudocv.dir/build.make CMakeFiles/sudocv.dir/utils/cache.cpp.s
+.PHONY : utils/cache.cpp.s
+
 vision.o: vision.cpp.o
 
 .PHONY : vision.o
@@ -203,6 +230,9 @@ help:
 	@echo "... sudo.o"
 	@echo "... sudo.i"
 	@echo "... sudo.s"
+	@echo "... utils/cache.o"
+	@echo "... utils/cache.i"
+	@echo "... utils/cache.s"
 	@echo "... vision.o"
 	@echo "... vision.i"
 	@echo "... vision.s"

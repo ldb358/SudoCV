@@ -1,1 +1,1 @@
-/Library/Developer/CommandLineTools/usr/bin/c++    -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/sudocv.dir/sudo.cpp.o  -o sudocv  
+/Library/Developer/CommandLineTools/usr/bin/c++   -std=c++11 -stdlib=libc++ -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/sudocv.dir/sudo.cpp.o CMakeFiles/sudocv.dir/utils/cache.cpp.o  -o sudocv  

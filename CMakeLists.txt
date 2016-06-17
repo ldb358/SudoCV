@@ -1,7 +1,20 @@
 cmake_minimum_required(VERSION 2.8)
-project( sudocv )
+project( sudocv CXX )
 find_package( OpenCV REQUIRED )
 add_executable( vision vision.cpp )
+SET( TARGET_H utils/cache.h )
+SET( TARGET_SRC utils/cache.cpp )
 target_link_libraries( vision ${OpenCV_LIBS} )
-add_executable( sudocv sudo.cpp ) 
-
+add_executable( sudocv sudo.cpp ${TARGET_SRC} ${TARGET_H}) 
+set(CMAKE_CXX_FLAGS "-std=c++11 -stdlib=libc++")
+if(MSVC)
+  # Force to always compile with W4
+  if(CMAKE_CXX_FLAGS MATCHES "/W[0-4]")
+    string(REGEX REPLACE "/W[0-4]" "/W4" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+  else()
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4")
+  endif()
+elseif(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUCXX)
+  # Update if necessary
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wno-long-long -pedantic")
+endif()

@@ -66,7 +66,7 @@ CMAKE_BINARY_DIR = /Users/brenemal/personal/sudocv
 CMakeFiles/sudocv.dir/all:
 	$(MAKE) -f CMakeFiles/sudocv.dir/build.make CMakeFiles/sudocv.dir/depend
 	$(MAKE) -f CMakeFiles/sudocv.dir/build.make CMakeFiles/sudocv.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/brenemal/personal/sudocv/CMakeFiles --progress-num=1,2 "Built target sudocv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/brenemal/personal/sudocv/CMakeFiles --progress-num=1,2,3 "Built target sudocv"
 .PHONY : CMakeFiles/sudocv.dir/all
 
 # Include target in all.
@@ -76,7 +76,7 @@ all: CMakeFiles/sudocv.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/sudocv.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/brenemal/personal/sudocv/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/brenemal/personal/sudocv/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/sudocv.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/brenemal/personal/sudocv/CMakeFiles 0
 .PHONY : CMakeFiles/sudocv.dir/rule
@@ -103,7 +103,7 @@ clean: CMakeFiles/sudocv.dir/clean
 CMakeFiles/vision.dir/all:
 	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/depend
 	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/brenemal/personal/sudocv/CMakeFiles --progress-num=3,4 "Built target vision"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/brenemal/personal/sudocv/CMakeFiles --progress-num=4,5 "Built target vision"
 .PHONY : CMakeFiles/vision.dir/all
 
 # Include target in all.

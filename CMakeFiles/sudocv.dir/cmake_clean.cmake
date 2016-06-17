@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/sudocv.dir/sudo.cpp.o"
+  "CMakeFiles/sudocv.dir/utils/cache.cpp.o"
   "sudocv.pdb"
   "sudocv"
 )
