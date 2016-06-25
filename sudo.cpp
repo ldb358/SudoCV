@@ -2,6 +2,7 @@
 #include <fstream>
 #include <vector>
 #include <exception>
+#include <algorithm>
 #include "utils/cache.h"
 
 class BadGameDataException: public std::exception
@@ -57,6 +58,7 @@ class Sudoku
 		Cache build_cache();
 
 		int is_solved();
+		void set(unsigned int x, unsigned int y, int val);
 };
 
 Sudoku::Sudoku()
@@ -79,6 +81,14 @@ int Sudoku::is_solved() {
 	return 1;
 }
 
+
+void Sudoku::set(unsigned int x, unsigned int y, int val){
+	/*
+	 * This function allows for some cool debug stuff
+	 */
+
+}
+
 void Sudoku::solve(){
 	while(!is_solved()){
 		only_choice();	
@@ -93,10 +103,7 @@ void Sudoku::solve(){
 		}
 		Cache c = build_cache();
 		claimed_values(c);
-		c.print();
 		only_choice(c);
-		c.print();
-		break;
 	}
 }
 
@@ -138,7 +145,7 @@ int Sudoku::only_choice(Cache &c){
 			std::vector<int> res = c.get(i, n);
 			if(res.size() == 1){	
 				puzzle[i][n] = res[0];
-				c.del(i, n, res[0]);
+				c = build_cache();
 				changes = 1;
 				i=0;
 				n=-1;
@@ -148,49 +155,6 @@ int Sudoku::only_choice(Cache &c){
 	return changes;
 }
 
-
-int Sudoku::only_hope(){
-	/*
-	 * A Solving algorithm that finds all of the values that finds all of the
-	 * values that have nowhere else to go. For example if a row has two open
-	 * spots and is missing 1 and 5 if the first spot has a 5 in the same column
-	 * then it would place the 5 in the other spot. This allows for another 
-	 * algorithm to clean up the missing pieces that they wouldn't have been 
-	 * able to solve otherwise.
-	 *
-	 * Returns 0 if no a change was made
-	 */
-	// for each x
-	for(unsigned int x=0; x < 9; ++x){
-		// for each y
-		for(unsigned int y=0; y < 9; ++y){	
-			// get the set A of every possible value
-			// std::vector<int> cur = check(x, y);
-			// create an array Z of values 0-9 and mark them 1 if they are in A and 0 if they are not
-			if(puzzle[x][y]){
-				continue;
-			}
-			int choice = row_choice(x, y);
-			if(choice){
-				puzzle[x][y] = choice;
-				return 1;
-			}
-			choice = column_choice(x, y);
-			if(choice){
-				puzzle[x][y] = choice;
-				return 1;
-
-			}
-			choice = block_choice(x, y);
-			if(choice){
-				puzzle[x][y] = choice;
-				solve();
-				return 1;
-			}
-		}
-	}
-	return 0;
-}
 
 int Sudoku::only_hope(){
 	/*
@@ -244,11 +208,8 @@ void Sudoku::claimed_values(Cache &cache)
 	 * can eliminate it from all other boxes in the row/column.
 	 */
 	for(int block=0; block < 9; ++block){
-		std::cout << "Starting Block " << block << std::endl;
 		claim_rows(cache, block);
-		std::cout << "Starting Columns " << block << std::endl;
 		claim_columns(cache, block);
-		std::cout << "Done." << std::endl;
 	}
 }
 
@@ -259,15 +220,15 @@ void Sudoku::claim_rows(Cache &cache, int block)
 	int base_y = block / 3;
 
 	// build the set for each row by finding the union of each col in the row
-	std::vector< std::vector<int> > row(3);
+	std::vector< std::vector<int> > row;
 	for (int i=0; i < 3; ++i){
-		std::vector<int> tmp(10);
-		std::vector<int> row_s(10);
+		std::vector<int> tmp;
+		std::vector<int> row_s;
 		std::vector<int> a = cache.get(base_x, base_y + i);
 		std::vector<int> b = cache.get(base_x + 1, base_y + i);
 		std::vector<int> c = cache.get(base_x + 2, base_y + i);
-		std::set_union(a.begin(), a.end(), b.begin(), b.end(), tmp.begin());
-		std::set_union(tmp.begin(), tmp.end(), c.begin(), c.end(), row_s.begin());
+		std::set_union(a.begin(), a.end(), b.begin(), b.end(), std::inserter(tmp, tmp.begin()));
+		std::set_union(tmp.begin(), tmp.end(), c.begin(), c.end(), std::inserter(row_s, row_s.begin()));
 		row.push_back(row_s);
 	}
 	std::vector< std::vector<int>::iterator > row_i {
@@ -316,13 +277,13 @@ void Sudoku::claim_columns(Cache &cache, int block)
 	// build the set for each row by finding the union of each col in the row
 	std::vector< std::vector<int> > cols(3);
 	for (int i=0; i < 3; ++i){
-		std::vector<int> tmp(10);
-		std::vector<int> col(10);
+		std::vector<int> tmp;
+		std::vector<int> col;
 		std::vector<int> a = cache.get(base_x + i, base_y);
 		std::vector<int> b = cache.get(base_x + i, base_y + 1);
 		std::vector<int> c = cache.get(base_x + i, base_y + 2);
-		std::set_union(a.begin(), a.end(), b.begin(), b.end(), tmp.begin());
-		std::set_union(tmp.begin(), tmp.end(), c.begin(), c.end(), col.begin());
+		std::set_union(a.begin(), a.end(), b.begin(), b.end(), std::inserter(tmp, tmp.begin()));
+		std::set_union(tmp.begin(), tmp.end(), c.begin(), c.end(), std::inserter(col, col.begin()));
 		cols.push_back(col);
 	}
 	std::vector< std::vector<int>::iterator > col_i {
@@ -657,6 +618,7 @@ int main(int argc, char **argv)
 	}catch (BadGameDataException &e){
 		std::cout << "Failed to load game board. Bad format." << std::endl;
 	}
+	s.print();
 	s.solve();
 	s.print();
 	return 0;
