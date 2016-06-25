@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/local/Cellar/cmake/3.5.2/bin/cmake
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = /usr/local/Cellar/cmake/3.5.2/bin/cmake -E remove -f
+RM = /usr/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/brenemal/personal/sudocv
+CMAKE_SOURCE_DIR = /home/brenemal/workspace/cpp/SudoCV
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/brenemal/personal/sudocv
+CMAKE_BINARY_DIR = /home/brenemal/workspace/cpp/SudoCV
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /Users/brenemal/personal/sudocv
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/local/Cellar/cmake/3.5.2/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -70,7 +70,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/local/Cellar/cmake/3.5.2/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -80,9 +80,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/brenemal/personal/sudocv/CMakeFiles /Users/brenemal/personal/sudocv/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/brenemal/workspace/cpp/SudoCV/CMakeFiles /home/brenemal/workspace/cpp/SudoCV/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/brenemal/personal/sudocv/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/brenemal/workspace/cpp/SudoCV/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -122,19 +122,6 @@ sudocv: cmake_check_build_system
 sudocv/fast:
 	$(MAKE) -f CMakeFiles/sudocv.dir/build.make CMakeFiles/sudocv.dir/build
 .PHONY : sudocv/fast
-
-#=============================================================================
-# Target rules for targets named vision
-
-# Build rule for target.
-vision: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 vision
-.PHONY : vision
-
-# fast build rule for target.
-vision/fast:
-	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/build
-.PHONY : vision/fast
 
 sudo.o: sudo.cpp.o
 
@@ -190,33 +177,6 @@ utils/cache.cpp.s:
 	$(MAKE) -f CMakeFiles/sudocv.dir/build.make CMakeFiles/sudocv.dir/utils/cache.cpp.s
 .PHONY : utils/cache.cpp.s
 
-vision.o: vision.cpp.o
-
-.PHONY : vision.o
-
-# target to build an object file
-vision.cpp.o:
-	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/vision.cpp.o
-.PHONY : vision.cpp.o
-
-vision.i: vision.cpp.i
-
-.PHONY : vision.i
-
-# target to preprocess a source file
-vision.cpp.i:
-	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/vision.cpp.i
-.PHONY : vision.cpp.i
-
-vision.s: vision.cpp.s
-
-.PHONY : vision.s
-
-# target to generate assembly for a file
-vision.cpp.s:
-	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/vision.cpp.s
-.PHONY : vision.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -226,16 +186,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... sudocv"
-	@echo "... vision"
 	@echo "... sudo.o"
 	@echo "... sudo.i"
 	@echo "... sudo.s"
 	@echo "... utils/cache.o"
 	@echo "... utils/cache.i"
 	@echo "... utils/cache.s"
-	@echo "... vision.o"
-	@echo "... vision.i"
-	@echo "... vision.s"
 .PHONY : help
 
 

@@ -333,7 +333,7 @@ int Sudoku::row_choice(unsigned int x, unsigned int y)
 	 */
 	char unique_pos[9] = { 1, 1, 1, 1, 1, 1, 1, 1, 1 };
 	// loop over every item in the row
-	for(int i=0; i < 9; ++i){
+	for(unsigned int i=0; i < 9; ++i){
 		// get the set B of every possible value for this row	
 		if(i == x){
 			continue;
@@ -373,7 +373,7 @@ int Sudoku::column_choice(unsigned int x, unsigned int y)
 	 */
 	char unique_pos[9] = { 1, 1, 1, 1, 1, 1, 1, 1, 1 };
 	// loop over every item in the row
-	for(int i=0; i < 9; ++i){
+	for(unsigned int i=0; i < 9; ++i){
 		// get the set B of every possible value for this row	
 		if(i == y){
 			continue;

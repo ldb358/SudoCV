@@ -1,4 +1,3 @@
-/Users/brenemal/personal/sudocv/CMakeFiles/edit_cache.dir
-/Users/brenemal/personal/sudocv/CMakeFiles/rebuild_cache.dir
-/Users/brenemal/personal/sudocv/CMakeFiles/sudocv.dir
-/Users/brenemal/personal/sudocv/CMakeFiles/vision.dir
+/home/brenemal/workspace/cpp/SudoCV/CMakeFiles/edit_cache.dir
+/home/brenemal/workspace/cpp/SudoCV/CMakeFiles/rebuild_cache.dir
+/home/brenemal/workspace/cpp/SudoCV/CMakeFiles/sudocv.dir

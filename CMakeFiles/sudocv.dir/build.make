@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/local/Cellar/cmake/3.5.2/bin/cmake
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = /usr/local/Cellar/cmake/3.5.2/bin/cmake -E remove -f
+RM = /usr/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/brenemal/personal/sudocv
+CMAKE_SOURCE_DIR = /home/brenemal/workspace/cpp/SudoCV
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/brenemal/personal/sudocv
+CMAKE_BINARY_DIR = /home/brenemal/workspace/cpp/SudoCV
 
 # Include any dependencies generated for this target.
 include CMakeFiles/sudocv.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/sudocv.dir/flags.make
 
 CMakeFiles/sudocv.dir/sudo.cpp.o: CMakeFiles/sudocv.dir/flags.make
 CMakeFiles/sudocv.dir/sudo.cpp.o: sudo.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/brenemal/personal/sudocv/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/sudocv.dir/sudo.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sudocv.dir/sudo.cpp.o -c /Users/brenemal/personal/sudocv/sudo.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/brenemal/workspace/cpp/SudoCV/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/sudocv.dir/sudo.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sudocv.dir/sudo.cpp.o -c /home/brenemal/workspace/cpp/SudoCV/sudo.cpp
 
 CMakeFiles/sudocv.dir/sudo.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sudocv.dir/sudo.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/brenemal/personal/sudocv/sudo.cpp > CMakeFiles/sudocv.dir/sudo.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/brenemal/workspace/cpp/SudoCV/sudo.cpp > CMakeFiles/sudocv.dir/sudo.cpp.i
 
 CMakeFiles/sudocv.dir/sudo.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sudocv.dir/sudo.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/brenemal/personal/sudocv/sudo.cpp -o CMakeFiles/sudocv.dir/sudo.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/brenemal/workspace/cpp/SudoCV/sudo.cpp -o CMakeFiles/sudocv.dir/sudo.cpp.s
 
 CMakeFiles/sudocv.dir/sudo.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/sudocv.dir/sudo.cpp.o.provides.build: CMakeFiles/sudocv.dir/sudo.cpp.
 
 CMakeFiles/sudocv.dir/utils/cache.cpp.o: CMakeFiles/sudocv.dir/flags.make
 CMakeFiles/sudocv.dir/utils/cache.cpp.o: utils/cache.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/brenemal/personal/sudocv/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/sudocv.dir/utils/cache.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sudocv.dir/utils/cache.cpp.o -c /Users/brenemal/personal/sudocv/utils/cache.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/brenemal/workspace/cpp/SudoCV/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/sudocv.dir/utils/cache.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sudocv.dir/utils/cache.cpp.o -c /home/brenemal/workspace/cpp/SudoCV/utils/cache.cpp
 
 CMakeFiles/sudocv.dir/utils/cache.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sudocv.dir/utils/cache.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/brenemal/personal/sudocv/utils/cache.cpp > CMakeFiles/sudocv.dir/utils/cache.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/brenemal/workspace/cpp/SudoCV/utils/cache.cpp > CMakeFiles/sudocv.dir/utils/cache.cpp.i
 
 CMakeFiles/sudocv.dir/utils/cache.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sudocv.dir/utils/cache.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/brenemal/personal/sudocv/utils/cache.cpp -o CMakeFiles/sudocv.dir/utils/cache.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/brenemal/workspace/cpp/SudoCV/utils/cache.cpp -o CMakeFiles/sudocv.dir/utils/cache.cpp.s
 
 CMakeFiles/sudocv.dir/utils/cache.cpp.o.requires:
 
@@ -117,7 +117,7 @@ sudocv: CMakeFiles/sudocv.dir/sudo.cpp.o
 sudocv: CMakeFiles/sudocv.dir/utils/cache.cpp.o
 sudocv: CMakeFiles/sudocv.dir/build.make
 sudocv: CMakeFiles/sudocv.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/brenemal/personal/sudocv/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable sudocv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/brenemal/workspace/cpp/SudoCV/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable sudocv"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/sudocv.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -135,6 +135,6 @@ CMakeFiles/sudocv.dir/clean:
 .PHONY : CMakeFiles/sudocv.dir/clean
 
 CMakeFiles/sudocv.dir/depend:
-	cd /Users/brenemal/personal/sudocv && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/brenemal/personal/sudocv /Users/brenemal/personal/sudocv /Users/brenemal/personal/sudocv /Users/brenemal/personal/sudocv /Users/brenemal/personal/sudocv/CMakeFiles/sudocv.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/brenemal/workspace/cpp/SudoCV && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/brenemal/workspace/cpp/SudoCV /home/brenemal/workspace/cpp/SudoCV /home/brenemal/workspace/cpp/SudoCV /home/brenemal/workspace/cpp/SudoCV /home/brenemal/workspace/cpp/SudoCV/CMakeFiles/sudocv.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/sudocv.dir/depend
 

@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/brenemal/personal/sudocv/sudo.cpp" "/Users/brenemal/personal/sudocv/CMakeFiles/sudocv.dir/sudo.cpp.o"
-  "/Users/brenemal/personal/sudocv/utils/cache.cpp" "/Users/brenemal/personal/sudocv/CMakeFiles/sudocv.dir/utils/cache.cpp.o"
+  "/home/brenemal/workspace/cpp/SudoCV/sudo.cpp" "/home/brenemal/workspace/cpp/SudoCV/CMakeFiles/sudocv.dir/sudo.cpp.o"
+  "/home/brenemal/workspace/cpp/SudoCV/utils/cache.cpp" "/home/brenemal/workspace/cpp/SudoCV/CMakeFiles/sudocv.dir/utils/cache.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "Clang")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
