@@ -186,7 +186,6 @@ int Sudoku::only_hope(){
 			if(choice){
 				puzzle[x][y] = choice;
 				return 1;
-
 			}
 			choice = block_choice(x, y);
 			if(choice){
@@ -264,7 +263,7 @@ void Sudoku::claim_rows(Cache &cache, int block)
 				if(r >= base_x && r < base_x+3){
 					continue;
 				}
-				cache.del(r, cur, i);
+				cache.del(r, base_y + cur, i);
 			}
 		}
 	}

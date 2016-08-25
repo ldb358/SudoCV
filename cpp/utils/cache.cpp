@@ -59,7 +59,7 @@ void Cache::print()
 		}
 		std::cout << std::endl;
 		//print the separation lines
-		for(int i=0; i < 37; ++i){
+		for(int z=0; z < 37; ++z){
 			std::cout << "-";
 		}
 		std::cout << std::endl;

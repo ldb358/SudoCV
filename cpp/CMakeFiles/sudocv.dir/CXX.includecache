@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/Users/brenemal/personal/sudocv/sudo.cpp
+/Users/brenemal/personal/sudocv/cpp/sudo.cpp
 iostream
 -
 fstream
@@ -18,15 +18,15 @@ exception
 algorithm
 -
 utils/cache.h
-/Users/brenemal/personal/sudocv/utils/cache.h
+/Users/brenemal/personal/sudocv/cpp/utils/cache.h
 
-/Users/brenemal/personal/sudocv/utils/cache.cpp
+/Users/brenemal/personal/sudocv/cpp/utils/cache.cpp
 cache.h
-/Users/brenemal/personal/sudocv/utils/cache.h
+/Users/brenemal/personal/sudocv/cpp/utils/cache.h
 iostream
 -
 
-/Users/brenemal/personal/sudocv/utils/cache.h
+/Users/brenemal/personal/sudocv/cpp/utils/cache.h
 vector
 -
 
