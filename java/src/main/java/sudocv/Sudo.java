@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.lang.ArrayIndexOutOfBoundsException;
 
+import javafx.geometry.Pos;
 import sudocv.areas.Area;
 import sudocv.areas.Block;
 import sudocv.areas.Column;
@@ -64,14 +65,16 @@ public class Sudo {
 				continue;
 			}
 			claimed_values(c);
+            doubles(c);
 			if(only_hope(c) > 0){
 				continue;
 			}
-			if(only_choice(c) > 0){
-				continue;
-			}
+			if(only_choice(c) > 0) {
+                continue;
+            }
 			if(!solved()){
 				System.out.printf("All of our methods have failed us...\n");
+                c.print();
 			}
 			break;
 		}
@@ -171,7 +174,6 @@ public class Sudo {
 		return list;
 	}
 
-
 	private int only_hope(Cache c) throws NoPosibleMovesException{
 		/*
 		 * A Solving algorithm that finds all of the values that finds all of the
@@ -254,7 +256,6 @@ public class Sudo {
 		return val;
 	}
 	
-	
 	private void claimed_values(Cache cache){
 		/*
 		 * Claimed Values:
@@ -322,6 +323,44 @@ public class Sudo {
 		}
 	}
 
+	private void doubles(Cache cache) {
+        // loop through every square in a region that has a candidate list of 2
+        // compare it to every other square that has a length of 2 and if they
+        // match delete those values from every candidate list in that area
+        for(int i=0; i < 9; ++i){
+            filter_doubles(cache, new Row(i));
+            filter_doubles(cache, new Column(i));
+            filter_doubles(cache, new Block(i));
+        }
+    }
+
+    private void filter_doubles(Cache cache, Area region){
+        for(int i=0; i < 9; ++i){
+            ArrayList<Integer> first = cache.get(region.get(i));
+            if(first.size() != 2){
+                continue;
+            }
+            for(int n=0; n < 9; ++n){
+                ArrayList<Integer> second = cache.get(region.get(n));
+                if(i == n || second.size() != 2) {
+                    continue;
+                }
+                if(arrays_match(first, second)){
+                    for(int z=0; z < 9; z++){
+                        if(z == i || z == n) {
+                            continue;
+                        }
+                        for(int val: first) {
+                            cache.del(region.get(z), val);
+                        }
+                    }
+                }
+            }
+
+        }
+
+    }
+
 	private Cache build_cache() {
 		Cache c = new Cache();	
 		for(int y=0; y < 9; y++){
@@ -363,7 +402,22 @@ public class Sudo {
 		}
 		return true;
 	}
-	
+
+	public boolean arrays_match(ArrayList<Integer> a, ArrayList<Integer> b) {
+	    if(a == null || b == null) {
+	        return (a == null && b == null);
+        }
+        if(a.size() != b.size()){
+            return false;
+        }
+        for(int val: a){
+            if(!b.contains(a)){
+                return false;
+            }
+        }
+        return true;
+    }
+
 	public void debug(ArrayList<Integer> a){
 		for(int val: a){
 			System.out.printf("%d ", val);
