@@ -16,4 +16,13 @@ public class Position {
 	public int get_y(){
 		return y;
 	}
+
+	public boolean equals(Position p) {
+	    return x == p.get_x() && y == p.get_y();
+    }
+
+    public boolean between(Position a, Position b) {
+        return (this.get_x() >= a.get_x() && this.get_x() <= b.get_x() &&
+                this.get_y() >= a.get_y() && this.get_y() <= b.get_y());
+    }
 }
