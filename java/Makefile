@@ -6,8 +6,6 @@ run:
 	java -jar build/libs/sudocv-0.1.0.jar test_data/game2.txt
 
 runall:
-	java -jar build/libs/sudocv-0.1.0.jar test_data/game.txt
 	java -jar build/libs/sudocv-0.1.0.jar test_data/game2.txt
 	java -jar build/libs/sudocv-0.1.0.jar test_data/game3.txt
-	java -jar build/libs/sudocv-0.1.0.jar test_data/game4.txt
 	java -jar build/libs/sudocv-0.1.0.jar test_data/game5.txt

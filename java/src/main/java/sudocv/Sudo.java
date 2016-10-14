@@ -9,14 +9,13 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.lang.ArrayIndexOutOfBoundsException;
 
-import javafx.geometry.Pos;
 import sudocv.areas.Area;
 import sudocv.areas.Block;
 import sudocv.areas.Column;
 import sudocv.areas.Row;
 import sudocv.areas.Position;
 
-import sudocv.exceptions.NoPosibleMovesException;
+import sudocv.exceptions.NoPossibleMovesException;
 
 
 public class Sudo {
@@ -55,7 +54,7 @@ public class Sudo {
 		puzzle[x][y] = val;
 	}	
 	
-	public void solve() throws NoPosibleMovesException{
+	public void solve() throws NoPossibleMovesException {
 		while (!solved()){
 			Cache c = build_cache();
 			if(only_choice(c) > 0){
@@ -65,7 +64,7 @@ public class Sudo {
 				continue;
 			}
 			claimed_values(c);
-            doubles(c);
+            disjoint_sets(c);
 			if(only_hope(c) > 0){
 				continue;
 			}
@@ -107,7 +106,7 @@ public class Sudo {
 	
 	public ArrayList<Integer> check(int x, int y) {
 		ArrayList<Integer> lst = new ArrayList<>();
-		if (puzzle[x][y] != 0) {
+		if (get(x, y) != 0) {
 			return lst;
 		}
 		ArrayList<Integer> row = check_area(new Row(y));
@@ -174,7 +173,7 @@ public class Sudo {
 		return list;
 	}
 
-	private int only_hope(Cache c) throws NoPosibleMovesException{
+	private int only_hope(Cache c) throws NoPossibleMovesException {
 		/*
 		 * A Solving algorithm that finds all of the values that finds all of the
 		 * values that have nowhere else to go. For example if a row has two open
@@ -212,7 +211,7 @@ public class Sudo {
 						return 1;
 					}
 				}catch(ArrayIndexOutOfBoundsException e){
-					throw new NoPosibleMovesException("There are no posible moves", x, y);
+					throw new NoPossibleMovesException("There are no posible moves", x, y);
 				}
 			}
 		}
@@ -323,7 +322,7 @@ public class Sudo {
 		}
 	}
 
-	private void doubles(Cache cache) {
+	private void disjoint_sets(Cache cache) {
         // loop through every square in a region that has a candidate list of 2
         // compare it to every other square that has a length of 2 and if they
         // match delete those values from every candidate list in that area
@@ -331,6 +330,9 @@ public class Sudo {
             filter_doubles(cache, new Row(i));
             filter_doubles(cache, new Column(i));
             filter_doubles(cache, new Block(i));
+            filter_triples(cache, new Row(i));
+            filter_triples(cache, new Column(i));
+            filter_triples(cache, new Block(i));
         }
     }
 
@@ -358,7 +360,41 @@ public class Sudo {
             }
 
         }
+    }
 
+    private void filter_triples(Cache cache, Area region){
+        for(int i=0; i < 9; ++i){
+            ArrayList<Integer> first = cache.get(region.get(i));
+            if(first.size() > 3 || first.size() == 0) {
+                continue;
+            }
+            for(int n=i; n < 9; ++n){
+                ArrayList<Integer> second = cache.get(region.get(n));
+                if(i == n || second.size() > 3 || second.size() == 0) {
+                    continue;
+                }
+                for(int k=n; k < 9; ++k) {
+                    ArrayList<Integer> third = cache.get(region.get(k));
+                    if(k == i || k== n || third.size() > 3 || third.size() == 0) {
+                        continue;
+                    }
+                    HashSet<Integer> set = new HashSet<>(first);
+                    set.addAll(second);
+                    set.addAll(third);
+
+                    if(set.size() != 3) continue;
+                    for(int z = 0; z < 9; z++) {
+                        if (z == i || z == n || z==k) {
+                            continue;
+                        }
+                        for (int val : set) {
+                            cache.del(region.get(z), val);
+                        }
+                    }
+                }
+            }
+
+        }
     }
 
 	private Cache build_cache() {
